@@ -71,6 +71,10 @@ class JournalEntry extends HTMLElement {
     /* 
      * TODO: set the entry title, date, and content fields in this component
      */
+    var article = this.shadowRoot.querySelector("article");
+    article.querySelector(".entry-title").textContent = entry.title;
+    article.querySelector(".entry-date").textContent = entry.date;
+    article.querySelector(".entry-content").textContent = entry.content;
     
     // CODE GOES HERE
 
@@ -85,9 +89,11 @@ class JournalEntry extends HTMLElement {
 
       // CODE GOES HERE vvv
 
-
-
-
+      entryImage = document.createElement("img");
+      entryImage.classList.add("entry-image");
+      entryImage.src = entry.image.src;
+      entryImage.alt = entry.image.alt;
+      article.appendChild(entryImage);
 
       // CODE GOES HERE ^^^
 
@@ -111,10 +117,11 @@ class JournalEntry extends HTMLElement {
 
       // CODE GOES HERE vvv
 
-
-
-
-
+      entryAudio = document.createElement("audio");
+      entryAudio.classList.add("entry-audio");
+      entryAudio.controls = true;
+      entryAudio.src = entry.audio;
+      article.appendChild(entryAudio);
 
       // CODE GOES HERE ^^^
       
